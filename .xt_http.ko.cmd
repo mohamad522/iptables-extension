@@ -1,0 +1,1 @@
+cmd_/home/joe/demo_module/xt_http.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T arch/x86/module.lds -o /home/joe/demo_module/xt_http.ko /home/joe/demo_module/xt_http.o /home/joe/demo_module/xt_http.mod.o;  true
