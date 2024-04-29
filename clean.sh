@@ -4,4 +4,3 @@ rm xt*
 rm Mod*
 rm mod*
 mv ../xt_http* ./
-make
