@@ -17,21 +17,25 @@ Copy the header file to the appropriate location in your kernel headers director
 
 ```bash
 cp xt_http.h /usr/src/linux-headers-5.10.0-28-common/include/linux/netfilter
+```
 
 ### Step 2: Compile the Kernel Module
 Navigate to the directory containing `xt_http.c` and compile:
 ```bash
 make
+```
 
 ### Step 3: Install the Kernel Module
 Copy the compiled `.ko` file to the appropriate kernel directory:
 ```bash
 cp xt_http.ko /usr/lib/modules/5.10.0-22-amd64/kernel/net/netfilter
+```
 
 ### Step 4: Load the Kernel Module
 Load the module into the system:
 ```bash
 sudo insmod xt_http.ko
+```
 
 ### Userspace Module
 
@@ -39,11 +43,13 @@ sudo insmod xt_http.ko
 Compile the userspace shared library `libxt_http.so`:
 ```bash
 gcc -shared -fPIC -o libxt_http.so libxt_http.c $(pkg-config --cflags --libs xtables)
+```
 
 #### Step 2: Install the Userspace Module
 Copy the compiled shared library to the xtables directory:
 ```bash
 cp libxt_http.so /usr/lib/x86_64-linux-gnu/xtables
+```
 
 ### Example Usage
 
@@ -51,7 +57,7 @@ To drop incoming HTTP traffic with a User-Agent header that matches "Chrome":
 
 ```bash
 sudo iptables -A INPUT -m http --user-agent "Chrome" -j DROP
-
+```
 
 
 
